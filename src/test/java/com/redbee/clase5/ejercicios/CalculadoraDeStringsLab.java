@@ -26,5 +26,5 @@ import org.junit.jupiter.api.DisplayName;
  *
  */
 @DisplayName("Laboratorio para ejercicio de numeros romanos")
-public class StringCalculatorLab {
+public class CalculadoraDeStringsLab {
 }
