@@ -1,6 +1,10 @@
 package com.redbee.clase5.ejercicios;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 /**
  * Requerimiento 1
@@ -26,4 +30,124 @@ import org.junit.jupiter.api.DisplayName;
 @DisplayName("Laboratorio para ejercicio de saludos")
 public class SaludosLab {
 
+    @Test
+    void saludaALaura() {
+        //give: cocinar los datos
+        final var nombre = "Laura";
+        final var saludoEsperado = "Hola, Laura";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of(nombre));
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
+
+    @Test
+    void saludaANull() {
+        //give: cocinar los datos
+        final var saludoEsperado = "Hola, colega";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(null);
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
+
+    @Test
+    void saludaAGritos() {
+        //give: cocinar los datos
+        final var nombre = "AIXA";
+        final var saludoEsperado = "¡HOLA, AIXA!";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of(nombre));
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
+
+    @Test
+    void saludaADosPersonas() {
+        //give: cocinar los datos
+        final var nombre1 = "Laura";
+        final var nombre2 = "Aixa";
+        final var saludoEsperado = "Hola, Laura y Aixa";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of(nombre1, nombre2));
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
+
+    @Test
+    void saludaAListaVacia() {
+        //give: cocinar los datos
+        final var saludoEsperado = "Hola, colega";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of());
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
+
+    @Test
+    void saludaGramaticalmenteCorrecto() {
+        //give: cocinar los datos
+        final var nombre1 = "Laura";
+        final var nombre2 = "Ignacio";
+        final var saludoEsperado = "Hola, Laura e Ignacio";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of(nombre1, nombre2));
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
+
+    @Test
+    void saludaGramaticalmenteCorrecto2() {
+        //give: cocinar los datos
+        final var nombre1 = "Laura";
+        final var nombre2 = "Hilario";
+        final var saludoEsperado = "Hola, Laura e Hilario";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of(nombre1, nombre2));
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
+
+    @Test
+    void saludaGramaticalmenteCorrecto3() {
+        //give: cocinar los datos
+        final var nombre1 = "Laura";
+        final var nombre2 = "Yvone";
+        final var saludoEsperado = "Hola, Laura e Yvone";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of(nombre1, nombre2));
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
+
+    @Test
+    void saludaUnaBanda() {
+        //give: cocinar los datos
+        final var nombre1 = "Laura";
+        final var nombre2 = "Aixa";
+        final var nombre3 = "Diegui";
+        final var saludoEsperado = "Hola, Laura, Aixa y Diegui";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of(nombre1, nombre2, nombre3));
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    }
 }
