@@ -1,6 +1,10 @@
 package com.redbee.clase5.ejercicios;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 /**
  * Crea una calculadora que sea capaz de recibir una operación matemática como input en un string y devuelva el
@@ -27,4 +31,60 @@ import org.junit.jupiter.api.DisplayName;
  */
 @DisplayName("Laboratorio para ejercicio de numeros romanos")
 public class CalculadoraDeStringsLab {
+
+  /*  @Test
+    void saludaALaura() {
+        //give: cocinar los datos
+        final var nombre = "Laura";
+        final var saludoEsperado = "Hola, Laura";
+
+        //when: testeo el requerimiento
+        final var saludoActual = MyBot.saluda(List.of(nombre));
+
+        //then: analizar el resultado
+        Assertions.assertEquals(saludoEsperado, saludoActual);
+    } */
+
+    @Test
+    @DisplayName("Test con string vacio")
+    void testStringVacio() {
+        Assertions.assertEquals(0, CalculadoraDeString.calcular(""));
+    }
+
+    @Test
+    @DisplayName("Test con string null")
+    void testStringNull() {
+        Assertions.assertEquals(0, CalculadoraDeString.calcular(null));
+    }
+
+    @Test
+    @DisplayName("Test con un solo valor")
+    void testStringUnValor() {
+        Assertions.assertEquals(3, CalculadoraDeString.calcular("3"));
+    }
+
+    @Test
+    @DisplayName("Test suma dos valores")
+    void testStringSuma() {
+        Assertions.assertEquals(5, CalculadoraDeString.calcular("3+2"));
+    }
+
+    @Test
+    @DisplayName("Test resta dos valores")
+    void testStringResta() {
+        Assertions.assertEquals(1, CalculadoraDeString.calcular("6-5"));
+    }
+
+    @Test
+    @DisplayName("Test producto de dos valores")
+    void testStringProducto() {
+        Assertions.assertEquals(6, CalculadoraDeString.calcular("2*3"));
+    }
+
+    @Test
+    @DisplayName("Test division de dos valores")
+    void testStringDivision() {
+        Assertions.assertEquals(3, CalculadoraDeString.calcular("6/2"));
+    }
+
 }
